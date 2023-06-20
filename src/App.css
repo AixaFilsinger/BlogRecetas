@@ -7,3 +7,7 @@
 .mainSection{
     flex-grow: 1;
 }
+
+table{
+    table-layout: fixed;
+  }

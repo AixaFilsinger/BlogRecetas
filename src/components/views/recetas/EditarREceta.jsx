@@ -7,7 +7,7 @@ const EditarReceta = () => {
         reset()
     }
     return (
-        <Container className="mainSection mt-5">
+        <section className="container mainSection mt-5">
             <h2 className="display-4 fw-semibold">Nueva Receta</h2>
             <hr/>
             <Form onSubmit={handleSubmit(onSubmit)}>
@@ -99,7 +99,7 @@ const EditarReceta = () => {
             </Form.Group>
             <Button variant="primary" type="submit">Guardar</Button>
             </Form>
-        </Container>
+        </section>
     );
 };
 
