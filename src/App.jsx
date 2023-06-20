@@ -16,7 +16,7 @@ function App() {
   return (
     <>
       <Menu></Menu>
-      <></>
+      <Inicio></Inicio>
       <Footer></Footer>
 
     </>

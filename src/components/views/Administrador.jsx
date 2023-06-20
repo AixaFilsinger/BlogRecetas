@@ -17,9 +17,9 @@ const Administrador = () => {
             <tr>
               <th>Cod</th>
               <th>Receta</th>
-              <th>Dificultad</th>
               <th>URL de Imagen</th>
               <th>Categoria</th>
+              <th>Dificultad</th>
               <th>Opciones</th>
             </tr>
           </thead>
