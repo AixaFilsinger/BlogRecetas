@@ -10,10 +10,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import RutasProtegidas from "./components/routes/RutasProtegidas";
 import RutasAdmin from "./components/routes/RutasAdmin";
-
 function App() {
   const usuarioLocal = JSON.parse(localStorage.getItem("usuario")) || null;
-
   const [usuarioLogueado, setUsuarioLogueado] = useState(usuarioLocal);
 
   return (
