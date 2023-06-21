@@ -1,22 +1,6 @@
 {
   "recetas": [
     {
-      "id": 1,
-      "tituloReceta": "Pastel de papas",
-      "imagen": "linkimagen",
-      "categoria": "Salado",
-      "dificultad": "Media",
-      "descripcion": "bebida caliente"
-    },
-    {
-      "id": 2,
-      "tituloReceta": "Carne al horno con papas",
-      "imagen": "linkimagen",
-      "categoria": "Salado",
-      "dificultad": "Media",
-      "descripcion": "bebida caliente"
-    },
-    {
       "id": 4,
       "tituloReceta": "Onigiri",
       "imagen": "linkimagen",

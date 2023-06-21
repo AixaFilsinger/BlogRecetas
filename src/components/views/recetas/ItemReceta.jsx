@@ -1,8 +1,9 @@
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import { consultaEliminarReceta, obtenerRecetas } from "../../helpers/queries";
 
-const ItemReceta = ({receta}) => {
+const ItemReceta = ({receta, setRecetas}) => {
 
   const borrarReceta=()=>{
     Swal.fire({
@@ -16,7 +17,19 @@ const ItemReceta = ({receta}) => {
       cancelButtonText: 'Cancelar'
     }).then((result)=>{
       if(result.isConfirmed){
-        Swal.fire('Receta eliminada', `La receta ${receta.tituloReceta} se elimino con exito`, 'success')
+        
+        consultaEliminarReceta(receta.id).then((respuesta)=>{
+          if(respuesta.status === 200){
+            Swal.fire('Receta eliminada', `La receta ${receta.tituloReceta} se elimino con exito`, 'success');
+            //Actualizar el state del administrador
+            obtenerRecetas().then((respuesta)=>{
+               setRecetas(respuesta);
+            })
+          }else{
+            Swal.fire('Error', `No se pudo eliminar la receta, intente mas tarde`, 'error')
+          }
+
+        })
       }
     })
      
