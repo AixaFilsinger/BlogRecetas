@@ -22,9 +22,6 @@ const Menu = ({ usuarioLogueado, setUsuarioLogueado }) => {
             <NavLink end className="nav-item nav-link" to={"/"}>
               Inicio
             </NavLink>
-            <NavLink end className="nav-item nav-link" to={"/registro"}>
-              Registro
-            </NavLink>
             {usuarioLogueado.email ? (
               <>
                 <NavLink

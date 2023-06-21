@@ -11,8 +11,12 @@ const CardReceta = ({receta}) => {
           src={receta.imagen}
         />
         <Card.Body>
-          <Card.Title>{receta.tituloReceta}</Card.Title>
-          <Card.Text>{receta.categoria}</Card.Text>
+          <Card.Title className="text-truncate text-center fs-4 fw-semibold">{receta.tituloReceta}</Card.Title>
+          <Card.Text>
+            <span className="text-secondary fs-6">Categoria:</span> {receta.categoria}
+          <br />
+          <span className="text-primary fs-6">Dificultad:</span> {receta.dificultad}
+          </Card.Text>
           <Link className="btn btn-primary me-2 mb-2" to={`/detalle/${receta.id}`}>Ver detalle</Link>
         </Card.Body>
       </Card>

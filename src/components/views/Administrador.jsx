@@ -34,7 +34,7 @@ const Administrador = () => {
         </div>
         <hr />
         <section className="table-responsive">
-        <Table  striped bordered hover>
+        <Table responsive striped bordered hover  >
           <thead>
             <tr>
               <th>Cod</th>

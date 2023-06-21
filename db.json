@@ -23,14 +23,6 @@
       "dificultad": "Baja",
       "descripcion": "gggggggggggggggggg",
       "id": 6
-    },
-    {
-      "tituloReceta": "Pastel",
-      "imagen": "https://pics.filmaffinity.com/suzume_no_tojimari-813023859-large.jpg",
-      "categoria": "Agridulce",
-      "dificultad": "Baja",
-      "descripcion": "ffffff",
-      "id": 7
     }
   ],
   "usuarios": [

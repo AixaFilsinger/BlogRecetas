@@ -40,7 +40,7 @@ const ItemReceta = ({receta, setRecetas}) => {
       
         <td>{receta.id}</td>
         <td>{receta.tituloReceta}</td>
-        <td>{receta.imagen}</td>
+        <td className="text-truncate">{receta.imagen}</td>
         <td>{receta.categoria}</td>
         <td>{receta.dificultad}</td>
         <td>
