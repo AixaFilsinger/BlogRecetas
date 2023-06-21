@@ -12,6 +12,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import CrearReceta from "./components/views/recetas/CrearReceta";
 import EditarReceta from "./components/views/recetas/EditarReceta";
 import { useState } from 'react';
+import RutasProtegidas from './components/routes/RutasProtegidas';
+import RutasAdmin from './components/routes/RutasAdmin';
 
 
 
@@ -28,12 +30,14 @@ function App() {
     <Routes>
       <Route exact path="/" element={<Inicio></Inicio>}></Route>
       <Route exact path='/registro' element={<Registro></Registro>}></Route>
-      <Route exact path='/administrador' element={<Administrador></Administrador>}></Route>
+      
       <Route exact path='/login' element={<Login setUsuarioLogueado= {setUsuarioLogueado}></Login>}></Route>
       <Route exact path='/detalle' element={<DetalleRecetas></DetalleRecetas>}></Route>
-      <Route exact path='/administrador/crear' element={<CrearReceta></CrearReceta>}></Route>
-      <Route exact path='/administrador/editar' element={<EditarReceta></EditarReceta>}></Route>
+      <Route  path='/administrador/*' element={<RutasProtegidas>
+        <RutasAdmin></RutasAdmin>
+      </RutasProtegidas>}></Route>
       <Route path='*' element={<Error404></Error404>}></Route>
+      
       
     </Routes>
     <Footer></Footer>
