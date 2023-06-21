@@ -2,7 +2,7 @@ import "./App.css";
 import Menu from "./components/common/Menu";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Footer from "./components/common/Footer";
-import DetalleRecetas from "./components/views/DetalleREcetas";
+import DetalleRecetas from "./components/views/DetalleRecetas";
 import Login from "./components/views/Login";
 
 import Inicio from "./components/views/Inicio";
