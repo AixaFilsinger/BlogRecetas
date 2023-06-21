@@ -1,9 +1,12 @@
 import { Form, Button, Container, Card } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
+import { iniciarSesion } from "../helpers/queries";
 
 
 const Login = () => {
+
+  
 
     const {
         register,
@@ -14,7 +17,7 @@ const Login = () => {
 
       const onSubmit = (usuario)=>{
         // console.log(usuario);
-         
+         iniciarSesion(usuario);
      
        }
     return (
