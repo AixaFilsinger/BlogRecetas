@@ -18,7 +18,7 @@ export const iniciarSesion =  async (usuario)=>{
             console.log("Email encontrado")
             //verificar si la contraseña es igual
 
-            if(usuario_Buscado.password === usuario.email){
+            if(usuario_Buscado.password === usuario.password){
                 console.log("usuario encontrado")
                 return usuario_Buscado;
             }else{

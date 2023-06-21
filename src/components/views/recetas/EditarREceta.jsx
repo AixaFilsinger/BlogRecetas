@@ -70,6 +70,7 @@ const EditarReceta = () => {
             <Form.Group className="mb-3" controlId="formDificultad">
             <Form.Label>Dificultad*</Form.Label>
             <Form.Select aria-label="Dificultad" {...register("dificultad",{required: 'Debe elegir una opción'})}>
+            <option value=''>Seleccione la Dificultad</option>
             <option value="Alta">Alta</option>
             <option value="Media">Media</option>
             <option value="Baja">Baja</option>

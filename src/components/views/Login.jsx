@@ -2,9 +2,10 @@ import { Form, Button, Container, Card } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import { iniciarSesion } from "../helpers/queries";
+import { useNavigate } from "react-router";
 
 
-const Login = () => {
+const Login = ({setUsuarioLogueado}) => {
 
   
 
@@ -15,9 +16,23 @@ const Login = () => {
         reset
       } = useForm();
 
+      const navegacion = useNavigate();
+
       const onSubmit = (usuario)=>{
         // console.log(usuario);
-         iniciarSesion(usuario);
+         iniciarSesion(usuario).then((respuesta)=>{
+          if(respuesta){
+            //debo logear al usuario
+            localStorage.setItem('usuario', JSON.stringify(respuesta))
+            setUsuarioLogueado(respuesta);
+            Swal.fire('Bienvenido', 'Inicio sesión correctamente', 'success')
+            navegacion('/administrador');
+          }else{
+            //debo indicar el error
+            Swal.fire('Error', 'El Email o la Contraseña son incorrectos', 'error');
+          }
+
+         })
      
        }
     return (
