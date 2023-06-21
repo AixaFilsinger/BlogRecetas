@@ -17,8 +17,10 @@ import { useState } from 'react';
 
 
 function App() {
+
+  const usuarioLocal = JSON.parse(localStorage.getItem('usuario')) || {}
   
-  const [usuarioLogueado, setUsuarioLogueado] = useState({});
+  const [usuarioLogueado, setUsuarioLogueado] = useState(usuarioLocal);
 
   return (
     <BrowserRouter>
