@@ -1,28 +1,12 @@
 {
   "recetas": [
     {
-      "id": 4,
-      "tituloReceta": "Onigiri",
-      "imagen": "linkimagen",
-      "categoria": "Salado",
-      "dificultad": "Media",
-      "descripcion": "bebida caliente"
-    },
-    {
-      "tituloReceta": "Pastel",
-      "imagen": "https://pics.filmaffinity.com/suzume_no_tojimari-813023859-large.jpg",
-      "categoria": "Salado",
-      "dificultad": "Media",
-      "descripcion": "ssssssssssssssssssssssssssssssssssss",
-      "id": 5
-    },
-    {
-      "tituloReceta": "Pastel",
-      "imagen": "https://pics.filmaffinity.com/suzume_no_tojimari-813023859-large.jpg",
+      "tituloReceta": "Guisomacarones",
+      "imagen": "https://content-cocina.lecturas.com/medio/2022/05/06/macarrones-con-setas-y-pimientos_e13a0b4d_600x600.jpg",
       "categoria": "Salado",
       "dificultad": "Baja",
-      "descripcion": "gggggggggggggggggg",
-      "id": 6
+      "descripcion": "Ingredientes:\n\n1-fideos macarones\n2- cebolla\n3-pimiento\n4-pure de tomate\n5-condimentos(sal, aji, pimienta, pimenton)\n6-agua\n\nProcedimiento:\nSe corta una cebolla en cuadraditos pequeños y los pimientos se ponen en el sarten a fuego bajo con aceite y se dejan cocinar por cinco minutos luego se larga el pure de tomate y agua ya hervida, despues de unos minutos se larga el paquete de fideos y se deja cocinar 10min",
+      "id": 1
     }
   ],
   "usuarios": [

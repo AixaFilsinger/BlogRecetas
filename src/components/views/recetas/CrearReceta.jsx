@@ -54,12 +54,7 @@ const CrearReceta = () => {
                 value: 45,
                 message:
                   "El nombre de la Receta debe contener como máximo 50 carácteres",
-              },
-              pattern: {
-                value: /^[A-Z][A-Za-z]{2,49}$/,
-                message:
-                  "El nombre del producto solo puede contener letras y debe comenzar con mayúscula",
-              },
+              }
             })}
           />
           <Form.Text className="text-danger">
