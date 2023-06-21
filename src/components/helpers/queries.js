@@ -1,6 +1,7 @@
 //llamo a la variable de entorno
 
 const url_usuarios = import.meta.env.VITE_Usuarios;
+const url_recetas = import.meta.env.VITE_Recetas;
 
 export const iniciarSesion =  async (usuario)=>{
     console.log(usuario);
@@ -33,5 +34,33 @@ export const iniciarSesion =  async (usuario)=>{
     } catch (error) {
         console.log(error);
         return null;
+    }
+}
+
+export const obtenerRecetas = async ()=>{
+    try {
+
+        const respuesta = await fetch(url_recetas);
+        const listaRecetas = await respuesta.json();
+        return listaRecetas;
+        
+    } catch (error) {
+        console.log(error);
+        return null
+        
+    }
+
+}
+
+export const consultaEliminarReceta = async (id)=>{
+    try {
+      const respuesta = await fetch(`${url_recetas}/${id}`, {
+        method: "DELETE"
+      });
+      return respuesta;
+        
+    } catch (error) {
+        console.log(error);
+        
     }
 }

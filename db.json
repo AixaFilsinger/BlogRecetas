@@ -1,13 +1,36 @@
 {
-"recetas": [
-    { "id": 1, "tituloReceta": "Pastel de papas", "imagen":"linkimagen","categoria":"Salado", "dificultad":"Media", "descripcion":"bebida caliente" },
-    { "id": 2, "tituloReceta": "Carne al horno con papas", "imagen":"linkimagen", "categoria":"Salado", "dificultad":"Media", "descripcion":"bebida caliente" },
-    { "id": 3, "tituloReceta": "Guiso de lentejas","imagen":"linkimagen", "categoria":"Salado", "dificultad":"Media", "descripcion":"bebida caliente" },
-    { "id": 4, "tituloReceta": "Onigiri", "imagen":"linkimagen", "categoria":"Salado", "dificultad":"Media", "descripcion":"bebida caliente" }
+  "recetas": [
+    {
+      "id": 1,
+      "tituloReceta": "Pastel de papas",
+      "imagen": "linkimagen",
+      "categoria": "Salado",
+      "dificultad": "Media",
+      "descripcion": "bebida caliente"
+    },
+    {
+      "id": 2,
+      "tituloReceta": "Carne al horno con papas",
+      "imagen": "linkimagen",
+      "categoria": "Salado",
+      "dificultad": "Media",
+      "descripcion": "bebida caliente"
+    },
+    {
+      "id": 4,
+      "tituloReceta": "Onigiri",
+      "imagen": "linkimagen",
+      "categoria": "Salado",
+      "dificultad": "Media",
+      "descripcion": "bebida caliente"
+    }
   ],
   "usuarios": [
-    { "id": 1, "nombreUsuario": "adminAixa", "email": "aixa.filsinger@gmail.com", "password":"123456aA" }
+    {
+      "id": 1,
+      "nombreUsuario": "adminAixa",
+      "email": "aixa.filsinger@gmail.com",
+      "password": "123456aA"
+    }
   ]
-
 }
-

@@ -1,8 +1,19 @@
 import { Table, Button } from "react-bootstrap";
 import ItemReceta from "./recetas/ItemReceta";
+import { useEffect, useState } from "react";
+import { obtenerRecetas } from "../helpers/queries";
 
 
 const Administrador = () => {
+  
+  const [recetas, setRecetas] = useState([]);
+
+  useEffect(()=>{
+    obtenerRecetas().then((respuesta)=>{
+      setRecetas(respuesta);
+    })
+  },[])
+
     return (
         <section className="container mainSection">
         <div className="d-flex justify-content-between align-items-center mt-5">
@@ -12,7 +23,8 @@ const Administrador = () => {
           </Button>
         </div>
         <hr />
-        <Table responsive striped bordered hover>
+        <section className="table-responsive">
+        <Table  striped bordered hover>
           <thead>
             <tr>
               <th>Cod</th>
@@ -24,10 +36,13 @@ const Administrador = () => {
             </tr>
           </thead>
           <tbody>
-            <ItemReceta></ItemReceta>
+          {
+              recetas.map((receta)=><ItemReceta key={receta.id} receta={receta}></ItemReceta>)
+            }
            
           </tbody>
         </Table>
+        </section>
       </section>
     );
 };
