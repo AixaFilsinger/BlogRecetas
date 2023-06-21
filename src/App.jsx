@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Footer from "./components/common/Footer";
 import DetalleRecetas from "./components/views/DetalleRecetas";
 import Login from "./components/views/Login";
-import RutasAdmin from "./components/routes/RutasAdmin";
+
 
 import Inicio from "./components/views/Inicio";
 import Error404 from "./components/views/Error404";
