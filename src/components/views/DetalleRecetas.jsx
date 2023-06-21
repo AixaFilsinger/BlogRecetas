@@ -1,33 +1,48 @@
+import { useState } from "react";
 import { Container, Card, Row, Col } from "react-bootstrap";
+import { useParams } from "react-router";
+import { useEffect } from "react";
+import { obtenerUnaReceta } from "../helpers/queries";
 
 const DetalleRecetas = () => {
-    return (
-        <Container className="my-3 mainSection">
-        <Card>
-          <Row>
-            <Col md={6}>
-              <Card.Img
-                variant="top"
-                src="https://images.pexels.com/photos/10273537/pexels-photo-10273537.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-              />
-            </Col>
-            <Col md={6}>
-              <Card.Body>
-                <Card.Title className="display-5 fw-bold">Pastel de Papas</Card.Title>
-                <hr />
-                <Card.Text>
-                Combinación perfecta entre leche, choclate, café intenso y un toque de canela. Café con granos 100% de arábica brasileña. Todo en una capsula inteligente.
-                <br/>
-                <br/>
-                <span className="text-primary fw-semibold ">Categoria:</span> Salado
-                <br />
-                <span className="text-warning fw-semibold ">Dificultad:</span> Media </Card.Text>
-              </Card.Body>
-            </Col>
-          </Row>
-        </Card>
-      </Container>
-    );
+  const { id } = useParams();
+  const [receta, setReceta] = useState({});
+
+  useEffect(() => {
+    obtenerUnaReceta(id).then((respuesta) => {
+      setReceta(respuesta);
+    });
+  }, []);
+  return (
+    <Container className="my-3 mainSection">
+      <Card>
+        <Row>
+          <Col md={6}>
+            <Card.Img variant="top" src={receta.imagen} />
+          </Col>
+          <Col md={6}>
+            <Card.Body>
+              <Card.Title className="display-5 fw-bold">
+                {receta.tituloReceta}
+              </Card.Title>
+              <hr />
+              <Card.Text>
+                <p>{receta.descripcion}</p>
+                <div className="d-flex justify-content-center ">
+                  <aside className="me-5 fw-semibold text-secondary">
+                    Categoria: {receta.categoria}
+                  </aside>
+                  <aside className="fw-semibold text-secondary">
+                    Dificultad: {receta.dificultad}
+                  </aside>
+                </div>
+              </Card.Text>
+            </Card.Body>
+          </Col>
+        </Row>
+      </Card>
+    </Container>
+  );
 };
 
 export default DetalleRecetas;

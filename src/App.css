@@ -6,9 +6,28 @@
 
 .mainSection{
     flex-grow: 1;
+    
 }
 
 table{
     table-layout: fixed;
     
+  }
+
+  .error404{
+    background-color: #DF9FA0;
+
+  }
+
+  .banner{
+    object-fit: cover;
+    height: 395px;
+    width: 100%;
+}
+
+.navmenu{
+    background-color: #eeca8f;
+}
+.textarea1 {
+    resize: none;
   }

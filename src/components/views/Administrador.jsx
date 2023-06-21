@@ -3,6 +3,7 @@ import ItemReceta from "./recetas/ItemReceta";
 import { useEffect, useState } from "react";
 import { obtenerRecetas } from "../helpers/queries";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 
 const Administrador = () => {
@@ -11,7 +12,15 @@ const Administrador = () => {
 
   useEffect(()=>{
     obtenerRecetas().then((respuesta)=>{
-      setRecetas(respuesta);
+      if(respuesta){
+        setRecetas(respuesta);
+      } else{
+        Swal.fire(
+          'Se produjo un error al intentar cargar los datos',
+          `Intente realizar esta operacion mas tarde`,
+          'error');
+      }
+      
     })
   },[])
 

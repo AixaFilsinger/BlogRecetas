@@ -11,7 +11,7 @@ const Menu = ({ usuarioLogueado, setUsuarioLogueado }) => {
   };
 
   return (
-    <Navbar expand="lg" bg="info" data-bs-theme="dark">
+    <Navbar expand="lg"  data-bs-theme="light" className="navmenu">
       <Container>
         <Navbar.Brand as={Link} to={"/"}>
           Blog de recetas

@@ -1,18 +1,19 @@
-import {  Card, Button } from "react-bootstrap";
+import {  Card} from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 
-const CardReceta = () => {
+const CardReceta = ({receta}) => {
     return (
         
-      <Card>
+      <Card className="m-1">
         <Card.Img
           variant="top"
-          src="https://images.pexels.com/photos/10273537/pexels-photo-10273537.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          src={receta.imagen}
         />
         <Card.Body>
-          <Card.Title>Pastelde papas</Card.Title>
-          <Card.Text>Categoria: Salado</Card.Text>
-          <Button variant="primary">Ver detalle</Button>
+          <Card.Title>{receta.tituloReceta}</Card.Title>
+          <Card.Text>{receta.categoria}</Card.Text>
+          <Link className="btn btn-primary me-2 mb-2" to={`/detalle/${receta.id}`}>Ver detalle</Link>
         </Card.Body>
       </Card>
     

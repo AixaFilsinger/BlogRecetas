@@ -126,6 +126,7 @@ const CrearReceta = () => {
         <Form.Group className="mb-3" controlId="formDescripcion">
           <Form.Label>Descripcion*</Form.Label>
           <Form.Control
+          className="textarea1"
             as="textarea"
             rows={3}
             {...register("descripcion", {

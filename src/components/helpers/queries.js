@@ -51,6 +51,20 @@ export const obtenerRecetas = async ()=>{
     }
 
 }
+export const obtenerUnaReceta = async (id)=>{
+    try {
+
+        const respuesta = await fetch(`${url_recetas}/${id}`);
+        const recetaEditar= await respuesta.json();
+        return recetaEditar;
+        
+    } catch (error) {
+        console.log(error);
+        return null
+        
+    }
+
+}
 
 export const consultaEliminarReceta = async (id)=>{
     try {
@@ -68,6 +82,22 @@ export const consultaCrearReceta = async (receta)=>{
     try {
       const respuesta = await fetch(url_recetas, {
         method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(receta)
+      });
+      return respuesta
+        
+    } catch (error) {
+        console.log(error);
+        
+    }
+}
+export const consultaEditarReceta = async (receta, id)=>{
+    try {
+      const respuesta = await fetch(`${url_recetas}/${id}`, {
+        method: "PUT",
         headers: {
             "Content-Type": "application/json"
         },

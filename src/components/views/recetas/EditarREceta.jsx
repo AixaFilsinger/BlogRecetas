@@ -1,11 +1,46 @@
 import { Button, Container , Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
+import { useEffect } from "react";
+import { useParams, useNavigate } from "react-router";
+import { consultaEditarReceta, obtenerUnaReceta } from "../../helpers/queries";
+import Swal from "sweetalert2";
+
 const EditarReceta = () => {
-    const {register,handleSubmit,formState: { errors },reset} = useForm();
-    const onSubmit = () => {
-        console.log('mi submit');
-        reset()
+  const {id} = useParams();
+
+  const navegacion = useNavigate();
+
+    const {register,handleSubmit,formState: { errors },reset, setValue} = useForm();
+    const onSubmit = (recetaEditada) => {
+      consultaEditarReceta(recetaEditada, id).then((respuesta)=>{
+        if(respuesta && respuesta.status === 200){
+          Swal.fire('Receta Modificada', `La receta ${recetaEditada.tituloReceta} fue modificada con exito`, 'success')
+          navegacion('/administrador');
+        }else {
+          Swal.fire(
+            "Error",
+            `Intente realizar esta operacion mas tarde`,
+            "error"
+          );}
+
+      })
+        
+        
     }
+
+    useEffect(()=>{
+      obtenerUnaReceta(id).then((respuesta)=>{
+        setValue("tituloReceta", respuesta.tituloReceta);
+        setValue("imagen", respuesta.imagen);
+        setValue("categoria", respuesta.categoria);
+        setValue("dificultad", respuesta.dificultad);
+        setValue("descripcion", respuesta.descripcion);
+      })
+
+    },[])
+
+
+
     return (
         <section className="container mainSection mt-5">
             <h2 className="display-4 fw-semibold text-center">Editar Receta</h2>
@@ -81,7 +116,7 @@ const EditarReceta = () => {
             </Form.Group>
             <Form.Group className="mb-3" controlId="formDescripcion">
             <Form.Label>Descripcion*</Form.Label>
-            <Form.Control as="textarea" rows={3} 
+            <Form.Control className="textarea1" as="textarea" rows={3} 
             {...register('descripcion',{
                 required: 'La Descripcion es obligatoria',
                 minLength:{
