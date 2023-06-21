@@ -4,7 +4,7 @@ import { obtenerRecetas } from "../helpers/queries";
 import Swal from "sweetalert2";
 import { useState, useEffect } from "react";
 import banner2 from "../../assets/banner2.png"
-import banner1 from "../../assets/banner1.png"
+
 
 const Inicio = () => {
   const [recetas, setRecetas] = useState([]);

@@ -1,4 +1,3 @@
-import React from "react";
 import { Routes, Route } from "react-router";
 import Administrador from "../views/Administrador";
 import CrearReceta from "../views/recetas/CrearReceta";
