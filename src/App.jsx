@@ -11,7 +11,7 @@ import { useState } from "react";
 import RutasProtegidas from "./components/routes/RutasProtegidas";
 import RutasAdmin from "./components/routes/RutasAdmin";
 function App() {
-  const usuarioLocal = JSON.parse(localStorage.getItem("usuario")) || null;
+  const usuarioLocal = JSON.parse(localStorage.getItem("usuario")) || {};
   const [usuarioLogueado, setUsuarioLogueado] = useState(usuarioLocal);
 
   return (
