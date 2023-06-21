@@ -57,7 +57,23 @@ export const consultaEliminarReceta = async (id)=>{
       const respuesta = await fetch(`${url_recetas}/${id}`, {
         method: "DELETE"
       });
-      return respuesta;
+      return respuesta
+        
+    } catch (error) {
+        console.log(error);
+        
+    }
+}
+export const consultaCrearReceta = async (receta)=>{
+    try {
+      const respuesta = await fetch(url_recetas, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(receta)
+      });
+      return respuesta
         
     } catch (error) {
         console.log(error);
