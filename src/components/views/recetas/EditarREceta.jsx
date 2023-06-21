@@ -8,7 +8,7 @@ const EditarReceta = () => {
     }
     return (
         <section className="container mainSection mt-5">
-            <h2 className="display-4 fw-semibold">Nueva Receta</h2>
+            <h2 className="display-4 fw-semibold text-center">Editar Receta</h2>
             <hr/>
             <Form onSubmit={handleSubmit(onSubmit)}>
             <Form.Group className="mb-3" controlId="formProducto">
