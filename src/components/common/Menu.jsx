@@ -1,5 +1,6 @@
 import { Navbar, Container, Nav, Button } from "react-bootstrap";
 import { Link, NavLink, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Menu = ({ usuarioLogueado, setUsuarioLogueado }) => {
   const navegacion = useNavigate();
@@ -8,6 +9,11 @@ const Menu = ({ usuarioLogueado, setUsuarioLogueado }) => {
     localStorage.removeItem("usuario");
     setUsuarioLogueado({});
     navegacion("/");
+    Swal.fire(
+      'Sesión cerrada con exito!',
+      'Usted cerro sesión correctamente',
+      'success'
+    )
   };
 
   return (
