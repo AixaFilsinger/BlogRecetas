@@ -1,3 +1,4 @@
+import axios from "axios";
 //llamo a la variable de entorno
 
 const url_usuarios = import.meta.env.VITE_Usuarios;
@@ -40,8 +41,8 @@ export const iniciarSesion =  async (usuario)=>{
 export const obtenerRecetas = async ()=>{
     try {
 
-        const respuesta = await fetch(url_recetas);
-        const listaRecetas = await respuesta.json();
+        const respuesta = await axios.get(url_recetas);
+        const listaRecetas = respuesta.data
         return listaRecetas;
         
     } catch (error) {
@@ -54,8 +55,8 @@ export const obtenerRecetas = async ()=>{
 export const obtenerUnaReceta = async (id)=>{
     try {
 
-        const respuesta = await fetch(`${url_recetas}/${id}`);
-        const recetaEditar= await respuesta.json();
+        const respuesta = await axios.get(`${url_recetas}/${id}`);
+        const recetaEditar= respuesta.data
         return recetaEditar;
         
     } catch (error) {
@@ -68,9 +69,10 @@ export const obtenerUnaReceta = async (id)=>{
 
 export const consultaEliminarReceta = async (id)=>{
     try {
-      const respuesta = await fetch(`${url_recetas}/${id}`, {
-        method: "DELETE"
-      });
+      const respuesta = await axios.request({
+        url:`${url_recetas}/${id}`,
+        method: 'DELETE'
+       });
       return respuesta
         
     } catch (error) {
@@ -80,13 +82,14 @@ export const consultaEliminarReceta = async (id)=>{
 }
 export const consultaCrearReceta = async (receta)=>{
     try {
-      const respuesta = await fetch(url_recetas, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(receta)
-      });
+        const respuesta = await axios.request({
+            url:url_recetas ,
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+          data: receta,}
+        )
       return respuesta
         
     } catch (error) {
@@ -96,13 +99,14 @@ export const consultaCrearReceta = async (receta)=>{
 }
 export const consultaEditarReceta = async (receta, id)=>{
     try {
-      const respuesta = await fetch(`${url_recetas}/${id}`, {
-        method: "PUT",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(receta)
-      });
+        const respuesta = await axios.request({
+            url: url_recetas+'/'+id,
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            data:receta
+        });
       return respuesta
         
     } catch (error) {
