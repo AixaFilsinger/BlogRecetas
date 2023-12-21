@@ -82,6 +82,8 @@ export const consultaEliminarReceta = async (id)=>{
     }
 }
 export const consultaCrearReceta = async (receta)=>{
+    const usuarioLocal= JSON.parse(localStorage.getItem("usuario")) || {}
+    console.log(usuarioLocal)
     try {
         const respuesta = await axios.request({
             url:url_recetas ,
@@ -89,7 +91,8 @@ export const consultaCrearReceta = async (receta)=>{
             headers: {
                 "Content-Type": "application/json"
             },
-          data: receta,}
+          data: {receta, token : usuarioLocal.token}
+        }
         )
       return respuesta.data
         
