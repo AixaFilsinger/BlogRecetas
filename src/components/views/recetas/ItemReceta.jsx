@@ -19,7 +19,8 @@ const ItemReceta = ({receta, setRecetas}) => {
       if(result.isConfirmed){
         
         consultaEliminarReceta(receta.id).then((respuesta)=>{
-          if(respuesta.status === 200){
+          console.log(respuesta)
+          if( respuesta && respuesta.status === 204){
             Swal.fire('Receta eliminada', `La receta ${receta.tituloReceta} se elimino con exito`, 'success');
             //Actualizar el state del administrador
             obtenerRecetas().then((respuesta)=>{

@@ -21,10 +21,11 @@ const Login = ({setUsuarioLogueado}) => {
       const onSubmit = (usuario)=>{
         
          iniciarSesion(usuario).then((respuesta)=>{
-          if(respuesta){
+          console.log(respuesta)
+          if(respuesta && respuesta.user){
             //debo logear al usuario
-            localStorage.setItem('usuario', JSON.stringify(respuesta))
-            setUsuarioLogueado(respuesta);
+            localStorage.setItem('usuario', JSON.stringify(respuesta.user))
+            setUsuarioLogueado(respuesta.user);
             Swal.fire('Bienvenido', 'Inicio sesión correctamente', 'success')
             navegacion('/administrador');
           }else{

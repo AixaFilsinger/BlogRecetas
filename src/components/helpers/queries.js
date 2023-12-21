@@ -9,24 +9,25 @@ export const iniciarSesion =  async (usuario)=>{
 
     try {
 
-        const respuesta = await fetch(url_usuarios)
-        const listadoUsuarios = await respuesta.json();
-        console.log(listadoUsuarios)
+        const respuesta = await axios.request({
+           url: url_usuarios,
+           method: 'POST',
+           headers: {
+            "Content-Type": "application/json"
+        },
+        data: usuario
+        })
+        const usuario_Buscado = respuesta.data
+        console.log(usuario_Buscado)
         //buscar si en listadousuarios hay un usuario iguel al que recibi por parametros
 
-        const usuario_Buscado = listadoUsuarios.find((itemUsuario)=>itemUsuario.email === usuario.email);
+       
 
         if(usuario_Buscado){
             console.log("Email encontrado")
             //verificar si la contraseña es igual
-
-            if(usuario_Buscado.password === usuario.password){
-                console.log("usuario encontrado")
-                return usuario_Buscado;
-            }else{
-                console.log("contrsaeña incorrecta")
-                return null;
-            }
+            return usuario_Buscado
+            
         }else{
             console.log("email incorrecto");
             return null;
@@ -90,7 +91,7 @@ export const consultaCrearReceta = async (receta)=>{
             },
           data: receta,}
         )
-      return respuesta
+      return respuesta.data
         
     } catch (error) {
         console.log(error);

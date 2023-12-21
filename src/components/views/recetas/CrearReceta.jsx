@@ -15,7 +15,8 @@ const CrearReceta = () => {
     console.log(recetaNueva);
     //realizar la peticion que agregue la receta a la API
     consultaCrearReceta(recetaNueva).then((respuesta) => {
-      if (respuesta.status === 201) {
+      console.log(respuesta)
+      if (respuesta.id) {
         Swal.fire(
           "Receta Creada",
           `La receta ${recetaNueva.tituloReceta} fue creada`,
