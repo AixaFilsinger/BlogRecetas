@@ -12,11 +12,12 @@ const CrearReceta = () => {
   } = useForm();
 
   const onSubmit = (recetaNueva) => {
-    console.log(recetaNueva);
     //realizar la peticion que agregue la receta a la API
     consultaCrearReceta(recetaNueva).then((respuesta) => {
       console.log(respuesta)
-      if ( respuesta && respuesta.id) {
+      if (respuesta && respuesta.message === "Ya existe una receta con ese título") {
+        Swal.fire("Error", "Ya existe una receta con ese título", "error");
+      } else if ( respuesta && respuesta.id) {
         Swal.fire(
           "Receta Creada",
           `La receta ${recetaNueva.tituloReceta} fue creada`,
@@ -141,6 +142,30 @@ const CrearReceta = () => {
           ></Form.Control>
           <Form.Text className="text-danger">
             {errors.descripcion?.message}
+          </Form.Text>
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formingredientes">
+          <Form.Label>Ingredientes*</Form.Label>
+          <Form.Control
+          className="textarea1"
+            as="textarea"
+            rows={3}
+            {...register("ingredientes", {
+              required: "Los ingredientes son obligatorios obligatoria",
+              minLength: {
+                value: 5,
+                message:
+                  "La Ingredientes debe contener como mínimo 5 carácteres debe empezar con la primera letra mayúscula",
+              },
+              maxLength: {
+                value: 500,
+                message:
+                  "La Ingredientes debe contener como maximo 500 carácteres",
+              },
+            })}
+          ></Form.Control>
+          <Form.Text className="text-danger">
+            {errors.ingredientes?.message}
           </Form.Text>
         </Form.Group>
         <Button variant="primary" type="submit">

@@ -28,6 +28,7 @@ const DetalleRecetas = () => {
               <hr />
               <Card.Text>
                 <p>{receta.descripcion}</p>
+                <p>{receta.ingredientes}</p>
                 <div className="d-flex justify-content-center ">
                   <aside className="me-5 fw-semibold text-secondary">
                     Categoria: {receta.categoria}

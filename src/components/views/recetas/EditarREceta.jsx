@@ -35,6 +35,7 @@ const EditarReceta = () => {
         setValue("categoria", respuesta.categoria);
         setValue("dificultad", respuesta.dificultad);
         setValue("descripcion", respuesta.descripcion);
+        setValue("ingredientes", respuesta.ingredientes);
       })
 
     },[])
@@ -129,6 +130,30 @@ const EditarReceta = () => {
               {errors.descripcion?.message}
             </Form.Text>
             </Form.Group>
+            <Form.Group className="mb-3" controlId="formingredientes">
+          <Form.Label>Ingredientes*</Form.Label>
+          <Form.Control
+          className="textarea1"
+            as="textarea"
+            rows={3}
+            {...register("ingredientes", {
+              required: "Los ingredientes son obligatorios obligatoria",
+              minLength: {
+                value: 5,
+                message:
+                  "La Ingredientes debe contener como mínimo 5 carácteres debe empezar con la primera letra mayúscula",
+              },
+              maxLength: {
+                value: 500,
+                message:
+                  "La Ingredientes debe contener como maximo 500 carácteres",
+              },
+            })}
+          ></Form.Control>
+          <Form.Text className="text-danger">
+            {errors.ingredientes?.message}
+          </Form.Text>
+        </Form.Group>
             <Button variant="primary" type="submit">Guardar</Button>
             </Form>
         </section>
